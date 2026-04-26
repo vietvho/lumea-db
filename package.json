@@ -1,0 +1,9 @@
+{
+  "name": "lumea-monorepo",
+  "private": true,
+  "workspaces": [
+    "db",
+    "types",
+    "apps/*"
+  ]
+}
