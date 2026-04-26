@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@lumea/db": ["./db/src/index.ts"],
+      "@lumea/types": ["./types/src/index.ts"]
+    }
+  }
+}
