@@ -24,6 +24,8 @@ jobs:
           scope: '@vietvho'
 
       - run: npm install   # 👈 workspace linking happens here
+      - run: npm i --save-dev @types/node
+        working-directory: "./types"
 
       - run: npm run build -w @vietvho/lumea-types
       - run: npm run build -w @vietvho/lumea-db
