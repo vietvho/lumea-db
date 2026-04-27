@@ -3,7 +3,6 @@
   "private": true,
   "workspaces": [
     "db",
-    "types",
-    "apps/*"
+    "types"
   ]
 }
