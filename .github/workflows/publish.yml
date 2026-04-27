@@ -33,6 +33,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # --- TYPES FIRST ---
+      - run: npm install
+        working-directory: ./types
+        
       - run: npm run build
         working-directory: ./types
 
@@ -42,6 +45,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # --- DB AFTER ---
+      - run: npm install
+        working-directory: ./db
+        
       - run: npm run build
         working-directory: ./db
 
