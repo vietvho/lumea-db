@@ -25,6 +25,7 @@ jobs:
       - name: Authenticator
         run: echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" > ~/.npmrc
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Install Dependences
@@ -38,6 +39,9 @@ jobs:
       - name: Publish types
         run: npm publish
         working-directory: ./types
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   
       # -- DB After
       - name: Build DB
@@ -47,3 +51,6 @@ jobs:
       - name: Publish types
         run: npm publish
         working-directory: ./db
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
