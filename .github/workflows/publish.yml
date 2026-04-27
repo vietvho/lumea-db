@@ -28,4 +28,13 @@ jobs:
         working-directory: "./types"
 
       - run: npm run build -w @vietvho/lumea-types
+      - run: npm publish
+        working-directory: ./types
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - run: npm run build -w @vietvho/lumea-db
+      - run: npm publish
+        working-directory: ./db
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
