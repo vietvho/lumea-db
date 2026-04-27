@@ -6,7 +6,9 @@ export default defineConfig ({
         schema: "src/schema.ts"
     },
     format: ["esm"],
-    dts: true,
+    dts:{
+        resolve: true
+    },
     splitting: false,
     sourcemap: true,
     clean: true,
