@@ -1,5 +1,5 @@
 {
-  "name": "@lumea/db",
+  "name": "@vietvho/lumea-db",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -29,7 +29,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@lumea/types": "0.1.0",
+    "@vietvho/lumea-types": "0.1.0",
     "drizzle-orm": "^0.38.3",
     "postgres": "^3.4.5"
   },

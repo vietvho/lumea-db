@@ -7,6 +7,7 @@ import {
   jsonb,
   pgEnum,
 } from "drizzle-orm/pg-core";
+
 import type {
   BrandIdentity,
   ColorPalette,
@@ -14,7 +15,7 @@ import type {
   LinkItem,
   InstagramPost,
   JobStatus,
-} from "@lumea/types";
+} from "@vietvho/lumea-types";
 
 // ─── Enums ────────────────────────────────────────────────────────────────────
 
