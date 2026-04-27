@@ -29,7 +29,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@vietvho/lumea-types": "0.1.0",
+    "@vietvho/lumea-types": "^0.1.0",
     "drizzle-orm": "^0.38.3",
     "postgres": "^3.4.5"
   },
