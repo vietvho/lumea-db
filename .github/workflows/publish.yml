@@ -21,6 +21,16 @@ jobs:
           registry-url: https://npm.pkg.github.com
 
       - run: npm install
+      - name: Debug token
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "TOKEN EMPTY"
+            exit 1
+          else
+            echo "TOKEN EXISTS"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # --- TYPES FIRST ---
       - run: npm run build
