@@ -14,44 +14,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com
+          scope: '@vietvho'
 
-      - run: npm install
-      - name: Debug token
-        run: |
-          if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo "TOKEN EMPTY"
-            exit 1
-          else
-            echo "TOKEN EXISTS"
-          fi
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm install   # 👈 workspace linking happens here
 
-      # --- TYPES FIRST ---
-      - run: npm install
-        working-directory: ./types
-        
-      - run: npm run build
-        working-directory: ./types
-
-      - run: npm publish
-        working-directory: ./types
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # --- DB AFTER ---
-      - run: npm install
-        working-directory: ./db
-        
-      - run: npm run build
-        working-directory: ./db
-
-      - run: npm publish
-        working-directory: ./db
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm run build -w @vietvho/lumea-types
+      - run: npm run build -w @vietvho/lumea-db
