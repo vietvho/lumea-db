@@ -1,8 +1,9 @@
 {
   "name": "@vietvho/lumea-types",
   "version": "0.1.1",
-  "main": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
@@ -11,9 +12,10 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
-  
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
