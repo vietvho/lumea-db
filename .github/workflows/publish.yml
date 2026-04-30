@@ -37,6 +37,5 @@ jobs:
       - run: npm run build -w @vietvho/lumea-db
       - run: npm publish
         working-directory: ./db
-        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
