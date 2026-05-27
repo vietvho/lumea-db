@@ -3,6 +3,8 @@ name: Publish Packages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   publish:
@@ -22,6 +24,7 @@ jobs:
           node-version: 20
           registry-url: https://npm.pkg.github.com
           scope: '@vietvho'
+          cache: 'npm'
 
       - run: npm install   # 👈 workspace linking happens here
       - run: npm i --save-dev @types/node
@@ -29,6 +32,7 @@ jobs:
 
       - run: npm run build -w @vietvho/lumea-types
       - run: npm publish
+        if: github.event_name == 'push'
         working-directory: ./types
         continue-on-error: true
         env:
@@ -36,6 +40,7 @@ jobs:
 
       - run: npm run build -w @vietvho/lumea-db
       - run: npm publish
+        if: github.event_name == 'push'
         working-directory: ./db
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
